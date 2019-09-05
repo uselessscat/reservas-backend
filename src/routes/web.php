@@ -11,6 +11,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/status', function () {
+    return response()->json([
+        'status' => 'The server is running &#128578',
+    ]);
 });
