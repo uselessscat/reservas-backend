@@ -4,9 +4,15 @@ info:
   version: "0.0.1"
 servers:
   - url: http://localhost:7353
+tags:
+  - name: Server
+    description: Server information
 paths:
   /status:
     get:
+      tags:
+        - Server
+      summary: Get server status
       responses:
         "200":
           description: Status
