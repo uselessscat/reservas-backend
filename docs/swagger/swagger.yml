@@ -1,0 +1,19 @@
+openapi: "3.0.2"
+info:
+  title: Reservations Api
+  version: "0.0.1"
+servers:
+  - url: http://localhost:7353
+paths:
+  /status:
+    get:
+      responses:
+        "200":
+          description: Status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
