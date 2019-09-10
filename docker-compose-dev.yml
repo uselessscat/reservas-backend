@@ -12,7 +12,7 @@ services:
         aliases:
           - nginx
   php:
-    image: php:7.3-fpm-buster
+    build: .
     volumes:
       - ./src:/src
     networks:
@@ -26,6 +26,8 @@ services:
       POSTGRES_DB: reservations
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
     networks:
       default:
         aliases:
