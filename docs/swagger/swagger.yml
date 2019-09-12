@@ -143,12 +143,13 @@ components:
       required: true
   schemas:
     genericId:
-      title: id
+      title: Id
       type: object
       properties:
         id:
           type: integer
     newPerson:
+      title: New Person
       type: object
       properties:
         name:
@@ -158,6 +159,7 @@ components:
         email:
           type: string
     person:
+      title: Person
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newPerson"
