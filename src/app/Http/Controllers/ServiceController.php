@@ -22,7 +22,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return $service;
+        return response($service, 201);
     }
 
     public function get(Request $request, int $id)

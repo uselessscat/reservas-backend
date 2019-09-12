@@ -184,7 +184,7 @@ components:
           schema:
             $ref: "#/components/schemas/newPerson"
     person:
-      description: Request that contains the person data with id 
+      description: Request that contains the person data with id
       content:
         application/json:
           schema:
@@ -196,7 +196,7 @@ components:
           schema:
             $ref: "#/components/schemas/newService"
     service:
-      description: Request that contains the service data with id 
+      description: Request that contains the service data with id
       content:
         application/json:
           schema:

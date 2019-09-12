@@ -22,7 +22,7 @@ class PersonController extends Controller
 
         $person->save();
 
-        return $person;
+        return response($person, 201);
     }
 
     public function get(Request $request, int $id)
