@@ -7,6 +7,8 @@ servers:
 tags:
   - name: Server
     description: Server information
+  - name: Person
+    description: Person manipulation endpoints
 paths:
   /status:
     get:
@@ -23,3 +25,82 @@ paths:
                 properties:
                   status:
                     type: string
+  /persons:
+    get:
+      tags:
+        - Person
+      summary: Get person list
+      responses:
+        "200":
+          description: Get the person data list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/person"
+    post:
+      tags:
+        - Person
+      summary: Creates new person data
+      requestBody:
+        $ref: "#/components/requestBodies/person"
+      responses:
+        "201":
+          $ref: "#/components/responses/person"
+  /persons/{id}:
+    get:
+      tags:
+        - Person
+      summary: Get person data
+      responses:
+        "200":
+          $ref: "#/components/responses/person"
+    patch:
+      tags:
+        - Person
+      summary: Updates person data
+      requestBody:
+        $ref: "#/components/requestBodies/person"
+      responses:
+        "200":
+          $ref: "#/components/responses/person"
+    delete:
+      tags:
+        - Person
+      summary: Delete person data
+      responses:
+        "204":
+          description: Person data has been deleted
+components:
+  schemas:
+    genericId:
+      title: id
+      type: integer
+    newPerson:
+      type: object
+      properties:
+        name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+    person:
+      allOf:
+        - $ref: "#/components/schemas/genericId"
+        - $ref: "#/components/schemas/newPerson"
+  requestBodies:
+    person:
+      description: Request that contains the person data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/person"
+  responses:
+    person:
+      description: Response that contains the person data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/person"
