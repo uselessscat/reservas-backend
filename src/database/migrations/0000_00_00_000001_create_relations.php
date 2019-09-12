@@ -34,6 +34,7 @@ class CreateRelations extends Migration
 
         Schema::table('appointments', function (Blueprint $table) {
             $table->foreign('person_id')->references('id')->on('persons');
+            $table->foreign('service_id')->references('id')->on('services');
         });
 
         Schema::table('appointment_requeriments', function (Blueprint $table) {

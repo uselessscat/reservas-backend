@@ -28,3 +28,9 @@ $router->post('/services', 'ServiceController@store');
 $router->get('/services/{id}', 'ServiceController@get');
 $router->patch('/services/{id}', 'ServiceController@update');
 $router->delete('/services/{id}', 'ServiceController@delete');
+
+$router->get('/appointments', 'AppointmentController@index');
+$router->post('/appointments', 'AppointmentController@store');
+$router->get('/appointments/{id}', 'AppointmentController@get');
+$router->patch('/appointments/{id}', 'AppointmentController@update');
+$router->delete('/appointments/{id}', 'AppointmentController@delete');
