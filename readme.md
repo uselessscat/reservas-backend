@@ -21,7 +21,7 @@ docker-compose -f docker-compose-dev.yml up --build -d
 Las pruebas se pueden ejecutar dentro del contenedor de php con:
 
 ```
-docker exec -t -w /src <PHP_CONTAINER_NAME> /src/vendor/bin/phpunit
+docker exec -t <PHP_CONTAINER_NAME> /src/vendor/bin/phpunit
 ```
 
 ### Comandos de Artisan
@@ -29,5 +29,5 @@ docker exec -t -w /src <PHP_CONTAINER_NAME> /src/vendor/bin/phpunit
 Los comandos de artisan se corren con:
 
 ```
-docker exec -t -w /src <PHP_CONTAINER_NAME> php artisan <COMMAND>
+docker exec -t <PHP_CONTAINER_NAME> php artisan <COMMAND>
 ```
