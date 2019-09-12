@@ -22,3 +22,9 @@ $router->post('/persons', 'PersonController@store');
 $router->get('/persons/{id}', 'PersonController@get');
 $router->patch('/persons/{id}', 'PersonController@update');
 $router->delete('/persons/{id}', 'PersonController@delete');
+
+$router->get('/services', 'ServiceController@index');
+$router->post('/services', 'ServiceController@store');
+$router->get('/services/{id}', 'ServiceController@get');
+$router->patch('/services/{id}', 'ServiceController@update');
+$router->delete('/services/{id}', 'ServiceController@delete');

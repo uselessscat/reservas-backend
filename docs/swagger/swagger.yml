@@ -9,6 +9,8 @@ tags:
     description: Server information
   - name: Person
     description: Person manipulation endpoints
+  - name: Service
+    description: Service manipulation endpoints
 paths:
   /status:
     get:
@@ -44,7 +46,7 @@ paths:
         - Person
       summary: Creates new person data
       requestBody:
-        $ref: "#/components/requestBodies/person"
+        $ref: "#/components/requestBodies/newPerson"
       responses:
         "201":
           $ref: "#/components/responses/person"
@@ -52,6 +54,8 @@ paths:
     get:
       tags:
         - Person
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
       summary: Get person data
       responses:
         "200":
@@ -59,6 +63,8 @@ paths:
     patch:
       tags:
         - Person
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
       summary: Updates person data
       requestBody:
         $ref: "#/components/requestBodies/person"
@@ -68,15 +74,80 @@ paths:
     delete:
       tags:
         - Person
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
       summary: Delete person data
       responses:
         "204":
           description: Person data has been deleted
+  /services:
+    get:
+      tags:
+        - Service
+      summary: Get service list
+      responses:
+        "200":
+          description: Get the service data list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/service"
+    post:
+      tags:
+        - Service
+      summary: Creates new service data
+      requestBody:
+        $ref: "#/components/requestBodies/newService"
+      responses:
+        "201":
+          $ref: "#/components/responses/service"
+  /services/{id}:
+    get:
+      tags:
+        - Service
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Get service data
+      responses:
+        "200":
+          $ref: "#/components/responses/service"
+    patch:
+      tags:
+        - Service
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Updates service data
+      requestBody:
+        $ref: "#/components/requestBodies/service"
+      responses:
+        "200":
+          $ref: "#/components/responses/service"
+    delete:
+      tags:
+        - Service
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Delete service data
+      responses:
+        "204":
+          description: Service data has been deleted
 components:
+  parameters:
+    genericRequiredId:
+      in: path
+      name: id
+      schema:
+        type: integer
+      required: true
   schemas:
     genericId:
       title: id
-      type: integer
+      type: object
+      properties:
+        id:
+          type: integer
     newPerson:
       type: object
       properties:
@@ -90,17 +161,54 @@ components:
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newPerson"
+    newService:
+      title: New Service
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    service:
+      title: Service
+      allOf:
+        - $ref: "#/components/schemas/genericId"
+        - $ref: "#/components/schemas/newService"
   requestBodies:
-    person:
+    newPerson:
       description: Request that contains the person data
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/person"
-  responses:
+            $ref: "#/components/schemas/newPerson"
     person:
-      description: Response that contains the person data
+      description: Request that contains the person data with id 
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/person"
+    newService:
+      description: Request that contains the service data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/newService"
+    service:
+      description: Request that contains the service data with id 
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/service"
+  responses:
+    person:
+      description: Response that contains the person data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/person"
+    service:
+      description: Response that contains the service data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/service"
