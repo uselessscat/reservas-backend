@@ -15,6 +15,8 @@ tags:
     description: Role manipulation endpoints
   - name: Place Type
     description: Place type manipulation endpoints
+  - name: Equipment Type
+    description: Equipment type manipulation endpoints
   - name: Requeriments Types
     description: Objects that can be used as requeriment types
 paths:
@@ -197,7 +199,7 @@ paths:
       responses:
         "204":
           description: Role data has been deleted
-  /place_type:
+  /place_types:
     get:
       tags:
         - Place Type
@@ -222,7 +224,7 @@ paths:
       responses:
         "201":
           $ref: "#/components/responses/placeType"
-  /place_type/{id}:
+  /place_types/{id}:
     get:
       tags:
         - Place Type
@@ -255,6 +257,64 @@ paths:
       responses:
         "204":
           description: Place Type data has been deleted
+  /equipment_types:
+    get:
+      tags:
+        - Equipment Type
+        - Requeriments Types
+      summary: Get equipment type list
+      responses:
+        "200":
+          description: Get the equipment type data list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/equipmentType"
+    post:
+      tags:
+        - Equipment Type
+        - Requeriments Types
+      summary: Creates new equipment type data
+      requestBody:
+        $ref: "#/components/requestBodies/newEquipmentType"
+      responses:
+        "201":
+          $ref: "#/components/responses/equipmentType"
+  /equipment_types/{id}:
+    get:
+      tags:
+        - Equipment Type
+        - Requeriments Types
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Get equipment type data
+      responses:
+        "200":
+          $ref: "#/components/responses/equipmentType"
+    patch:
+      tags:
+        - Equipment Type
+        - Requeriments Types
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Updates equipment type data
+      requestBody:
+        $ref: "#/components/requestBodies/equipmentType"
+      responses:
+        "200":
+          $ref: "#/components/responses/equipmentType"
+    delete:
+      tags:
+        - Equipment Type
+        - Requeriments Types
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Delete equipment type data
+      responses:
+        "204":
+          description: Equipment Type data has been deleted
 components:
   parameters:
     genericRequiredId:
@@ -320,6 +380,17 @@ components:
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newPlaceType"
+    newEquipmentType:
+      title: New Equipment Type
+      type: object
+      properties:
+        name:
+          type: string
+    equipmentType:
+      title: Equipment Type
+      allOf:
+        - $ref: "#/components/schemas/genericId"
+        - $ref: "#/components/schemas/newEquipmentType"
   requestBodies:
     newPerson:
       description: Request that contains the person data
@@ -358,11 +429,23 @@ components:
           schema:
             $ref: "#/components/schemas/role"
     newPlaceType:
-      description: Request that contains the role data
+      description: Request that contains the place data
       content:
         application/json:
           schema:
             $ref: "#/components/schemas/newPlaceType"
+    placeType:
+      description: Request that contains the place type data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/placeType"
+    newEquipmentType:
+      description: Request that contains the equipment data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/newEquipmentType"
     placeType:
       description: Request that contains the place type data with id
       content:
@@ -394,3 +477,9 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/placeType"
+    equipmentType:
+      description: Response that contains the equipment type data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/equipmentType"
