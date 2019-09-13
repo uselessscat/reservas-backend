@@ -13,6 +13,10 @@ tags:
     description: Service manipulation endpoints
   - name: Role
     description: Role manipulation endpoints
+  - name: Place Type
+    description: Place type manipulation endpoints
+  - name: Requeriments Types
+    description: Objects that can be used as requeriment types
 paths:
   /status:
     get:
@@ -139,6 +143,7 @@ paths:
     get:
       tags:
         - Role
+        - Requeriments Types
       summary: Get role list
       responses:
         "200":
@@ -152,6 +157,7 @@ paths:
     post:
       tags:
         - Role
+        - Requeriments Types
       summary: Creates new role data
       requestBody:
         $ref: "#/components/requestBodies/newRole"
@@ -162,6 +168,7 @@ paths:
     get:
       tags:
         - Role
+        - Requeriments Types
       parameters:
         - $ref: "#/components/parameters/genericRequiredId"
       summary: Get role data
@@ -171,6 +178,7 @@ paths:
     patch:
       tags:
         - Role
+        - Requeriments Types
       parameters:
         - $ref: "#/components/parameters/genericRequiredId"
       summary: Updates role data
@@ -182,12 +190,71 @@ paths:
     delete:
       tags:
         - Role
+        - Requeriments Types
       parameters:
         - $ref: "#/components/parameters/genericRequiredId"
       summary: Delete role data
       responses:
         "204":
           description: Role data has been deleted
+  /place_type:
+    get:
+      tags:
+        - Place Type
+        - Requeriments Types
+      summary: Get place type list
+      responses:
+        "200":
+          description: Get the place type data list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/placeType"
+    post:
+      tags:
+        - Place Type
+        - Requeriments Types
+      summary: Creates new place type data
+      requestBody:
+        $ref: "#/components/requestBodies/newPlaceType"
+      responses:
+        "201":
+          $ref: "#/components/responses/placeType"
+  /place_type/{id}:
+    get:
+      tags:
+        - Place Type
+        - Requeriments Types
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Get place type data
+      responses:
+        "200":
+          $ref: "#/components/responses/placeType"
+    patch:
+      tags:
+        - Place Type
+        - Requeriments Types
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Updates place type data
+      requestBody:
+        $ref: "#/components/requestBodies/placeType"
+      responses:
+        "200":
+          $ref: "#/components/responses/placeType"
+    delete:
+      tags:
+        - Place Type
+        - Requeriments Types
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Delete place type data
+      responses:
+        "204":
+          description: Place Type data has been deleted
 components:
   parameters:
     genericRequiredId:
@@ -242,6 +309,17 @@ components:
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newRole"
+    newPlaceType:
+      title: New Place Type
+      type: object
+      properties:
+        name:
+          type: string
+    placeType:
+      title: Place Type
+      allOf:
+        - $ref: "#/components/schemas/genericId"
+        - $ref: "#/components/schemas/newPlaceType"
   requestBodies:
     newPerson:
       description: Request that contains the person data
@@ -279,6 +357,18 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/role"
+    newPlaceType:
+      description: Request that contains the role data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/newPlaceType"
+    placeType:
+      description: Request that contains the place type data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/placeType"
   responses:
     person:
       description: Response that contains the person data with id
@@ -298,3 +388,9 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/role"
+    placeType:
+      description: Response that contains the place type data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/placeType"

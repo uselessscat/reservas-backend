@@ -29,6 +29,12 @@ $router->get('/roles/{id}', 'RoleController@get');
 $router->patch('/roles/{id}', 'RoleController@update');
 $router->delete('/roles/{id}', 'RoleController@delete');
 
+$router->get('/place_types', 'PlaceTypeController@index');
+$router->post('/place_types', 'PlaceTypeController@store');
+$router->get('/place_types/{id}', 'PlaceTypeController@get');
+$router->patch('/place_types/{id}', 'PlaceTypeController@update');
+$router->delete('/place_types/{id}', 'PlaceTypeController@delete');
+
 $router->get('/services', 'ServiceController@index');
 $router->post('/services', 'ServiceController@store');
 $router->get('/services/{id}', 'ServiceController@get');
