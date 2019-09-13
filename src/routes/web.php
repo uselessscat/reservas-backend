@@ -47,6 +47,12 @@ $router->get('/services/{id}', 'ServiceController@get');
 $router->patch('/services/{id}', 'ServiceController@update');
 $router->delete('/services/{id}', 'ServiceController@delete');
 
+$router->get('/services/{serviceId}/requeriments', 'RequerimentController@index');
+$router->post('/services/{serviceId}/requeriments', 'RequerimentController@store');
+$router->get('/services/{serviceId}/requeriments/{id}', 'RequerimentController@get');
+$router->patch('/services/{serviceId}/requeriments/{id}', 'RequerimentController@update');
+$router->delete('/services/{serviceId}/requeriments/{id}', 'RequerimentController@delete');
+
 $router->get('/appointments', 'AppointmentController@index');
 $router->post('/appointments', 'AppointmentController@store');
 $router->get('/appointments/{id}', 'AppointmentController@get');

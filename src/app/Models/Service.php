@@ -12,4 +12,9 @@ class Service extends Model
         'name',
         'description',
     ];
+
+    public function requeriments()
+    {
+        return $this->hasMany('App\Models\Requeriment');
+    }
 }
