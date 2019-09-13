@@ -23,6 +23,12 @@ $router->get('/persons/{id}', 'PersonController@get');
 $router->patch('/persons/{id}', 'PersonController@update');
 $router->delete('/persons/{id}', 'PersonController@delete');
 
+$router->get('/roles', 'RoleController@index');
+$router->post('/roles', 'RoleController@store');
+$router->get('/roles/{id}', 'RoleController@get');
+$router->patch('/roles/{id}', 'RoleController@update');
+$router->delete('/roles/{id}', 'RoleController@delete');
+
 $router->get('/services', 'ServiceController@index');
 $router->post('/services', 'ServiceController@store');
 $router->get('/services/{id}', 'ServiceController@get');

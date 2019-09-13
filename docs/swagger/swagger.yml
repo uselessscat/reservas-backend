@@ -11,6 +11,8 @@ tags:
     description: Person manipulation endpoints
   - name: Service
     description: Service manipulation endpoints
+  - name: Role
+    description: Role manipulation endpoints
 paths:
   /status:
     get:
@@ -133,6 +135,59 @@ paths:
       responses:
         "204":
           description: Service data has been deleted
+  /roles:
+    get:
+      tags:
+        - Role
+      summary: Get role list
+      responses:
+        "200":
+          description: Get the role data list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/role"
+    post:
+      tags:
+        - Role
+      summary: Creates new role data
+      requestBody:
+        $ref: "#/components/requestBodies/newRole"
+      responses:
+        "201":
+          $ref: "#/components/responses/role"
+  /roles/{id}:
+    get:
+      tags:
+        - Role
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Get role data
+      responses:
+        "200":
+          $ref: "#/components/responses/role"
+    patch:
+      tags:
+        - Role
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Updates role data
+      requestBody:
+        $ref: "#/components/requestBodies/role"
+      responses:
+        "200":
+          $ref: "#/components/responses/role"
+    delete:
+      tags:
+        - Role
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Delete role data
+      responses:
+        "204":
+          description: Role data has been deleted
 components:
   parameters:
     genericRequiredId:
@@ -176,6 +231,17 @@ components:
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newService"
+    newRole:
+      title: New Role
+      type: object
+      properties:
+        name:
+          type: string
+    role:
+      title: Role
+      allOf:
+        - $ref: "#/components/schemas/genericId"
+        - $ref: "#/components/schemas/newRole"
   requestBodies:
     newPerson:
       description: Request that contains the person data
@@ -201,6 +267,18 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/service"
+    newRole:
+      description: Request that contains the role data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/newRole"
+    role:
+      description: Request that contains the role data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/role"
   responses:
     person:
       description: Response that contains the person data with id
@@ -214,3 +292,9 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/service"
+    role:
+      description: Response that contains the role data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/role"

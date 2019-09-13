@@ -22,7 +22,7 @@ class PersonsTableSeeder extends Seeder
                 'id' => 3,
                 'name' => 'Administator',
                 'last_name' => 'Administrator',
-                'email' => 'developer@localhost',
+                'email' => 'admin@localhost',
             ],
         ];
 
