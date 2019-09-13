@@ -20,6 +20,7 @@ class CreateAppointmentRequerimentsTable extends Migration
             $table->bigInteger('requeriment_id');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

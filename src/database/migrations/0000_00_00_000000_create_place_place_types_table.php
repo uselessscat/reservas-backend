@@ -20,6 +20,7 @@ class CreatePlacePlaceTypesTable extends Migration
             $table->bigInteger('place_type_id');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

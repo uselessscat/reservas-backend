@@ -22,6 +22,7 @@ class CreatePersonsTable extends Migration
             $table->string('email', 255);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -26,6 +26,7 @@ class CreateRequerimentsTable extends Migration
             $table->integer('count')->default(1);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -17,6 +17,7 @@ class CreateEquipmentsTable extends Migration
             $table->bigIncrements('id');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

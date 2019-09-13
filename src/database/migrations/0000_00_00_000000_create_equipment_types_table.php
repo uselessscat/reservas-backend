@@ -18,6 +18,7 @@ class CreateEquipmentTypesTable extends Migration
             $table->string('name', 200);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

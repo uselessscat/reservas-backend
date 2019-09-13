@@ -20,6 +20,7 @@ class CreatePersonRolesTable extends Migration
             $table->bigInteger('role_id');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

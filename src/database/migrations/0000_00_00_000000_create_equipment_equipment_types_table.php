@@ -20,6 +20,7 @@ class CreateEquipmentEquipmentTypesTable extends Migration
             $table->bigInteger('equipment_type_id');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
