@@ -446,12 +446,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/newEquipmentType"
-    placeType:
-      description: Request that contains the place type data with id
+    equipmentType:
+      description: Request that contains the equipment type data with id
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/placeType"
+            $ref: "#/components/schemas/equipmentType"
   responses:
     person:
       description: Response that contains the person data with id
