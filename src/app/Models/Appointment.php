@@ -11,6 +11,7 @@ class Appointment extends Model
 
     protected $table = 'appointments';
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'person_id',
         'service_id',

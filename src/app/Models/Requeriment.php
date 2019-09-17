@@ -17,6 +17,7 @@ class Requeriment extends Model
 
     protected $table = 'requeriments';
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'service_id',
         'requeriment_type',

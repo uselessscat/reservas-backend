@@ -17,6 +17,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'name', 'email',
     ];

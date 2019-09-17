@@ -11,6 +11,7 @@ class EquipmentType extends Model
 
     protected $table = 'equipment_types';
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'name',
     ];

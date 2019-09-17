@@ -11,6 +11,7 @@ class Person extends Model
 
     protected $table = 'persons';
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'name',
         'last_name',
