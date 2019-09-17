@@ -27,7 +27,7 @@ class ServiceController extends Controller
 
     public function get(Request $request, int $id)
     {
-        $service = Service::findOrFail($id);
+        $service = Service::with('requeriments')->findOrFail($id);
 
         return $service;
     }

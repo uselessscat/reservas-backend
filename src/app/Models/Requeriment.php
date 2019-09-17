@@ -10,9 +10,9 @@ class Requeriment extends Model
     use SoftDeletes;
 
     public const REQUERIMENT_TYPES = [
-        'equipment' => 'EQUIPMENT',
-        'place' => 'PLACE',
-        'role' => 'ROLE',
+        'equipment' => 'App\\Models\\EquipmentType',
+        'place' => 'App\\Models\\PlaceType',
+        'role' => 'App\\Models\\Role',
     ];
 
     protected $table = 'requeriments';
@@ -20,13 +20,24 @@ class Requeriment extends Model
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'service_id',
-        'requeriment_type',
-        'requeriment_type_id',
+        'requerimentable_type',
+        'requerimentable_id',
         'count',
     ];
+
+    protected $appends = ['requerimentable'];
 
     public function service()
     {
         return $this->belongsTo('App\Models\Service');
+    }
+
+    public function getRequerimentableAttribute()
+    {
+        $type = $this->requeriment_type;
+
+        $model = self::REQUERIMENT_TYPES[$type];
+
+        return $model::findOrFail($this->requeriment_id);
     }
 }
