@@ -3,9 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Requeriment extends Model
 {
+    use SoftDeletes;
+
+    public const REQUERIMENT_TYPES = [
+        'equipment' => 'EQUIPMENT',
+        'place' => 'PLACE',
+        'role' => 'ROLE',
+    ];
+
     protected $table = 'requeriments';
 
     protected $fillable = [
