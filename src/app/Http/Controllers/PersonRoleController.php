@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PersonRole;
 use App\Models\Person;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -22,7 +21,7 @@ class PersonRoleController extends Controller
 
         $input = $request->only('roles');
 
-        $roles = Role::whereIn('id', $input)->get();
+        $roles = Role::whereIn('id', $input['roles'])->get();
 
         $person->roles()->saveMany($roles);
 
