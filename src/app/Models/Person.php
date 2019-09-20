@@ -17,4 +17,9 @@ class Person extends Model
         'last_name',
         'email',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'person_roles');
+    }
 }

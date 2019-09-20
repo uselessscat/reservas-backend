@@ -19,7 +19,7 @@ class PersonController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'last_name' => 'required',
-            'email' => 'required'
+            'email' => 'required',
         ]);
 
         $input = $request->only(['name', 'last_name', 'email']);
@@ -33,7 +33,7 @@ class PersonController extends Controller
 
     public function get(Request $request, int $id)
     {
-        $person = Person::findOrFail($id);
+        $person = Person::with('roles')->findOrFail($id);
 
         return $person;
     }
