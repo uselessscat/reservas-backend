@@ -23,7 +23,7 @@ class PersonRoleController extends Controller
 
         $roles = Role::whereIn('id', $input['roles'])->get();
 
-        $person->roles()->saveMany($roles);
+        $person->roles()->attach($roles);
 
         return response($roles, 201);
     }
@@ -37,28 +37,15 @@ class PersonRoleController extends Controller
         return $role;
     }
 
-    public function update(Request $request, int $personId, $id)
+    public function delete(Request $request, int $id)
     {
-        $person = Person::findOrFail($personId);
+        $person = Person::findOrFail($id);
 
-        $role = $person->roles()->findOrFail($id);
+        $input = $request->only('roles');
 
-        $input = $request->only(self::WHITELIST_FIELDS);
+        $roles = Role::whereIn('id', $input['roles'])->get();
 
-        $role->fill($input);
-
-        $person->roles()->save($role);
-
-        return $role;
-    }
-
-    public function delete(Request $request, int $personId, $id)
-    {
-        $person = Person::findOrFail($personId);
-
-        $role = $person->roles()->findOrFail($id);
-
-        $role->delete();
+        $person->roles()->detach($roles);
 
         return response('', 204);
     }

@@ -88,6 +88,57 @@ paths:
       responses:
         "204":
           description: Person data has been deleted
+  /persons/{personId}/roles:
+    get:
+      tags:
+        - Person
+        - Role
+      summary: Get person role list
+      parameters:
+        - $ref: "#/components/parameters/personId"
+      responses:
+        "200":
+          description: Get the person roles list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/role"
+    post:
+      tags:
+        - Person
+        - Role
+      summary: Attach roles to a person
+      parameters:
+        - $ref: "#/components/parameters/personId"
+      requestBody:
+        $ref: "#/components/requestBodies/personRoleList"
+      responses:
+        "201":
+          $ref: "#/components/responses/personRoleList"
+  /persons/{personId}/roles/{id}:
+    get:
+      tags:
+        - Person
+        - Role
+      parameters:
+        - $ref: "#/components/parameters/personId"
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Get role data
+      responses:
+        "200":
+          $ref: "#/components/responses/role"
+    delete:
+      tags:
+        - Person
+        - Role
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Detach a role
+      responses:
+        "204":
+          description: Role has been detached
   /services:
     get:
       tags:
@@ -323,6 +374,12 @@ components:
       schema:
         type: integer
       required: true
+    personId:
+      in: path
+      name: personId
+      schema:
+        type: integer
+      required: true
   schemas:
     genericId:
       title: Id
@@ -345,6 +402,22 @@ components:
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newPerson"
+    roleIdList:
+      type: object
+      properties:
+        roles:
+          type: array
+          items:
+            type: integer
+            title: Role id
+          example:
+            - 1
+            - 2
+            - 3
+    roleList:
+      type: array
+      items:
+        $ref: "#/components/schemas/role"
     newService:
       title: New Service
       type: object
@@ -404,6 +477,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/person"
+    personRoleList:
+      description: A list of roles
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/roleIdList"
     newService:
       description: Request that contains the service data
       content:
@@ -459,6 +538,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/person"
+    personRoleList:
+      description: A list of roles
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/roleList"
     service:
       description: Response that contains the service data with id
       content:
