@@ -18,6 +18,10 @@ class CreateRelations extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
         });
 
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->foreign('contact_type_id')->references('id')->on('contact_types');
+        });
+
         Schema::table('equipment_equipment_types', function (Blueprint $table) {
             $table->foreign('equipment_id')->references('id')->on('equipments');
             $table->foreign('equipment_type_id')->references('id')->on('equipment_types');

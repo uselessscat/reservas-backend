@@ -28,6 +28,11 @@ $router->post('/persons/{id}/roles', 'PersonRoleController@store');
 $router->delete('/persons/{id}/roles', 'PersonRoleController@delete');
 $router->get('/persons/{personId}/roles/{id}', 'PersonRoleController@get');
 
+$router->get('/persons/{id}/contacts', 'ContactController@index');
+$router->post('/persons/{id}/contacts', 'ContactController@store');
+$router->delete('/persons/{id}/contacts', 'ContactController@delete');
+$router->get('/persons/{personId}/contacts/{id}', 'ContactController@get');
+
 $router->get('/roles', 'RoleController@index');
 $router->post('/roles', 'RoleController@store');
 $router->get('/roles/{id}', 'RoleController@get');

@@ -22,4 +22,9 @@ class Person extends Model
     {
         return $this->belongsToMany('App\Models\Role', 'person_roles');
     }
+
+    public function contacts()
+    {
+        return $this->morphMany('App\Contact', 'contactable');
+    }
 }
