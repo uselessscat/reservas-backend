@@ -4,11 +4,6 @@ use Illuminate\Database\Seeder;
 
 class FakeDatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $this->call('RoleTableSeeder');
@@ -16,5 +11,6 @@ class FakeDatabaseSeeder extends Seeder
 
         $this->call('FakeRoleTableSeeder');
         $this->call('FakePersonsTableSeeder');
+        $this->call('FakeBranchOfficesTableSeeder');
     }
 }
