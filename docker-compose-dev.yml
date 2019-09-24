@@ -12,6 +12,8 @@ services:
       default:
         aliases:
           - nginx
+    depends_on:
+      - php
   php:
     build:
       context: .
@@ -23,6 +25,8 @@ services:
       default:
         aliases:
           - php
+    depends_on:
+      - postgres
   postgres:
     image: postgres:12
     restart: always
@@ -49,6 +53,8 @@ services:
           - pgadmin
     ports:
       - 7355:80
+    depends_on:
+      - postgres
   swagger:
     image: swaggerapi/swagger-ui
     ports:
@@ -57,5 +63,7 @@ services:
       - ./docs/swagger:/usr/share/nginx/html/definitions
     environment:
       API_URL: definitions/swagger.yml
+    depends_on: 
+      - php
 networks:
   default:
