@@ -13,6 +13,8 @@ tags:
     description: Service manipulation endpoints
   - name: Role
     description: Role manipulation endpoints
+  - name: Branch Office
+    description: Branch office manipulation endpoints
   - name: Place Type
     description: Place type manipulation endpoints
   - name: Equipment Type
@@ -250,6 +252,59 @@ paths:
       responses:
         "204":
           description: Role data has been deleted
+  /branch_offices:
+    get:
+      tags:
+        - Branch Office
+      summary: Get branch office list
+      responses:
+        "200":
+          description: Get the branch office data list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/branchOffice"
+    post:
+      tags:
+        - Branch Office
+      summary: Creates new branch office data
+      requestBody:
+        $ref: "#/components/requestBodies/newBranchOffice"
+      responses:
+        "201":
+          $ref: "#/components/responses/branchOffice"
+  /branch_offices/{id}:
+    get:
+      tags:
+        - Branch Office
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Get branch office data
+      responses:
+        "200":
+          $ref: "#/components/responses/branchOffice"
+    patch:
+      tags:
+        - Branch Office
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Updates branch office data
+      requestBody:
+        $ref: "#/components/requestBodies/branchOffice"
+      responses:
+        "200":
+          $ref: "#/components/responses/branchOffice"
+    delete:
+      tags:
+        - Branch Office
+      parameters:
+        - $ref: "#/components/parameters/genericRequiredId"
+      summary: Delete branch office data
+      responses:
+        "204":
+          description: Branch Office data has been deleted
   /place_types:
     get:
       tags:
@@ -442,6 +497,17 @@ components:
       allOf:
         - $ref: "#/components/schemas/genericId"
         - $ref: "#/components/schemas/newRole"
+    newBranchOffice:
+      title: New Branch Office
+      type: object
+      properties:
+        name:
+          type: string
+    branchOffice:
+      title: Branch Office
+      allOf:
+        - $ref: "#/components/schemas/genericId"
+        - $ref: "#/components/schemas/newBranchOffice"
     newPlaceType:
       title: New Place Type
       type: object
@@ -507,6 +573,18 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/role"
+    newBranchOffice:
+      description: Request that contains the branch office data
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/newBranchOffice"
+    branchOffice:
+      description: Request that contains the branch office data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/branchOffice"
     newPlaceType:
       description: Request that contains the place data
       content:
@@ -556,6 +634,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/role"
+    branchOffice:
+      description: Response that contains the branch office data with id
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/branchOffice"
     placeType:
       description: Response that contains the place type data with id
       content:
