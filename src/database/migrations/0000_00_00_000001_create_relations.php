@@ -45,6 +45,18 @@ class CreateRelations extends Migration
             $table->foreign('appointment_id')->references('id')->on('appointments');
             $table->foreign('requeriment_id')->references('id')->on('requeriments');
         });
+
+        Schema::table('person_roles', function (Blueprint $table) {
+            $table->foreign('branch_office_id')->references('id')->on('branch_offices');
+        });
+
+        Schema::table('places', function (Blueprint $table) {
+            $table->foreign('branch_office_id')->references('id')->on('branch_offices');
+        });
+
+        Schema::table('equipments', function (Blueprint $table) {
+            $table->foreign('branch_office_id')->references('id')->on('branch_offices');
+        });
     }
 
     /**

@@ -9,19 +9,16 @@ class PersonsTableSeeder extends Seeder
     {
         $defaultUsers = [
             [
-                'id' => 1,
                 'name' => 'system',
                 'last_name' => 'system',
                 'email' => 'system@localhost',
             ], [
-                'id' => 2,
                 'name' => 'developer',
                 'last_name' => 'developer',
                 'email' => 'developer@localhost',
             ], [
-                'id' => 3,
-                'name' => 'Administator',
-                'last_name' => 'Administrator',
+                'name' => 'administator',
+                'last_name' => 'administrator',
                 'email' => 'admin@localhost',
             ],
         ];

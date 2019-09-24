@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateEquipmentsTable extends Migration
 {
@@ -15,6 +15,8 @@ class CreateEquipmentsTable extends Migration
     {
         Schema::create('equipments', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->bigInteger('branch_office_id');
 
             $table->timestamps();
             $table->softDeletes();
