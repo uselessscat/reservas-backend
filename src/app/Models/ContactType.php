@@ -5,25 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Contact extends Model
+class ContactType extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'contacts';
+    protected $table = 'contact_types';
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'name',
-        'contact_type_id',
     ];
 
-    public function contactable()
+    public function contacts()
     {
-        return $this->morphTo();
-    }
-
-    public function contact_type()
-    {
-        return $this->hasMany('App\Models\ContactType');
+        return $this->hasMany('App\Models\Contact');
     }
 }
