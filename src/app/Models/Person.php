@@ -25,6 +25,6 @@ class Person extends Model
 
     public function contacts()
     {
-        return $this->morphMany('App\Contact', 'contactable');
+        return $this->morphMany('App\Models\Contact', 'contactable');
     }
 }
