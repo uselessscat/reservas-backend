@@ -51,6 +51,11 @@ $router->get('/branch_offices/{id}', 'BranchOfficeController@get');
 $router->patch('/branch_offices/{id}', 'BranchOfficeController@update');
 $router->delete('/branch_offices/{id}', 'BranchOfficeController@delete');
 
+$router->get('/branch_offices/{id}/contacts', 'BranchOfficeContactController@index');
+$router->post('/branch_offices/{id}/contacts', 'BranchOfficeContactController@store');
+$router->delete('/branch_offices/{id}/contacts', 'BranchOfficeContactController@delete');
+$router->get('/branch_offices/{branchOfficeId}/contacts/{id}', 'BranchOfficeContactController@get');
+
 $router->get('/place_types', 'PlaceTypeController@index');
 $router->post('/place_types', 'PlaceTypeController@store');
 $router->get('/place_types/{id}', 'PlaceTypeController@get');
