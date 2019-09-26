@@ -20,20 +20,22 @@ class PersonContactController extends Controller
     {
         $person = Person::findOrFail($personId);
 
-        $input = $request->only('roles');
+        $input = $request->only(['data', 'contact_type_id']);
 
-        $contacts = ContactType::whereIn('id', $input['roles'])->get();
+        $contact = new Contact($input);
 
-        $person->contacts()->attach($contacts);
+        $contact->contactable()->associate($person);
 
-        return response($contacts, 201);
+        $contact->save();
+
+        return response($person, 201);
     }
 
     public function get(Request $request, int $personId, int $id)
     {
         $person = Person::findOrFail($personId);
 
-        $role = $person->contacts()->findOrFail($id);
+        $role = $person->contacts()->where('id', $id)->get();
 
         return $role;
     }
