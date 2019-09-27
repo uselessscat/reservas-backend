@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\BranchOffice;
 use App\Models\Contact;
-use App\Models\ContactType;
 use Illuminate\Http\Request;
 
 class BranchOfficeContactController extends Controller

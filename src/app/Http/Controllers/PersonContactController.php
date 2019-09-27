@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Person;
 use App\Models\Contact;
-use App\Models\ContactType;
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 class PersonContactController extends Controller
