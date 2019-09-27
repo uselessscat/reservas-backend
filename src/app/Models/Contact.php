@@ -13,12 +13,17 @@ class Contact extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
-        'name',
+        'data',
         'contact_type_id',
     ];
 
     public function contactable()
     {
         return $this->morphTo();
+    }
+
+    public function contact_type()
+    {
+        return $this->belongsTo('App\Models\ContactType');
     }
 }

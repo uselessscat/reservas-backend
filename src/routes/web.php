@@ -28,10 +28,10 @@ $router->post('/persons/{id}/roles', 'PersonRoleController@store');
 $router->delete('/persons/{id}/roles', 'PersonRoleController@delete');
 $router->get('/persons/{personId}/roles/{id}', 'PersonRoleController@get');
 
-$router->get('/persons/{id}/contacts', 'ContactController@index');
-$router->post('/persons/{id}/contacts', 'ContactController@store');
-$router->delete('/persons/{id}/contacts', 'ContactController@delete');
-$router->get('/persons/{personId}/contacts/{id}', 'ContactController@get');
+$router->get('/persons/{id}/contacts', 'PersonContactController@index');
+$router->post('/persons/{id}/contacts', 'PersonContactController@store');
+$router->delete('/persons/{id}/contacts', 'PersonContactController@delete');
+$router->get('/persons/{personId}/contacts/{id}', 'PersonContactController@get');
 
 $router->get('/roles', 'RoleController@index');
 $router->post('/roles', 'RoleController@store');
@@ -39,11 +39,22 @@ $router->get('/roles/{id}', 'RoleController@get');
 $router->patch('/roles/{id}', 'RoleController@update');
 $router->delete('/roles/{id}', 'RoleController@delete');
 
+$router->get('/contact_types', 'ContactTypeController@index');
+$router->post('/contact_types', 'ContactTypeController@store');
+$router->get('/contact_types/{id}', 'ContactTypeController@get');
+$router->patch('/contact_types/{id}', 'ContactTypeController@update');
+$router->delete('/contact_types/{id}', 'ContactTypeController@delete');
+
 $router->get('/branch_offices', 'BranchOfficeController@index');
 $router->post('/branch_offices', 'BranchOfficeController@store');
 $router->get('/branch_offices/{id}', 'BranchOfficeController@get');
 $router->patch('/branch_offices/{id}', 'BranchOfficeController@update');
 $router->delete('/branch_offices/{id}', 'BranchOfficeController@delete');
+
+$router->get('/branch_offices/{id}/contacts', 'BranchOfficeContactController@index');
+$router->post('/branch_offices/{id}/contacts', 'BranchOfficeContactController@store');
+$router->delete('/branch_offices/{id}/contacts', 'BranchOfficeContactController@delete');
+$router->get('/branch_offices/{branchOfficeId}/contacts/{id}', 'BranchOfficeContactController@get');
 
 $router->get('/place_types', 'PlaceTypeController@index');
 $router->post('/place_types', 'PlaceTypeController@store');

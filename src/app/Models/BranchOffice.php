@@ -15,4 +15,9 @@ class BranchOffice extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function contacts()
+    {
+        return $this->morphMany('App\Models\Contact', 'contactable');
+    }
 }
