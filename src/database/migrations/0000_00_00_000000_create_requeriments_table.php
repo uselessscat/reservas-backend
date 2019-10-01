@@ -17,7 +17,7 @@ class CreateRequerimentsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('service_id');
 
-            $table->bigInteger('requeriment_id');
+            $table->bigInteger('requeriment_type_id');
             $table->enum('requeriment_type', [
                 'role',
                 'equipment',
