@@ -9,7 +9,7 @@ class PersonController extends Controller
 {
     public function index(Request $request)
     {
-        $personList = Person::all();
+        $personList = Person::paginate($request->query('per_page') ?? 10);
 
         return $personList;
     }
