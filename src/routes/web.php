@@ -68,6 +68,12 @@ $router->get('/equipment_types/{id}', 'EquipmentTypeController@get');
 $router->patch('/equipment_types/{id}', 'EquipmentTypeController@update');
 $router->delete('/equipment_types/{id}', 'EquipmentTypeController@delete');
 
+$router->get('/equipments', 'EquipmentController@index');
+$router->post('/equipments', 'EquipmentController@store');
+$router->get('/equipments/{id}', 'EquipmentController@get');
+$router->patch('/equipments/{id}', 'EquipmentController@update');
+$router->delete('/equipments/{id}', 'EquipmentController@delete');
+
 $router->get('/services', 'ServiceController@index');
 $router->post('/services', 'ServiceController@store');
 $router->get('/services/{id}', 'ServiceController@get');
