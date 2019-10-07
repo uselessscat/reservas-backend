@@ -18,4 +18,8 @@ class Appointment extends Model
         'from',
         'to',
     ];
+    public function appointmentRequeriment()
+    {
+        return $this->hasMany('App\Models\AppointmentRequeriment');
+    }
 }

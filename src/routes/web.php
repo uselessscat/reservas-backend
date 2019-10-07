@@ -85,3 +85,10 @@ $router->post('/appointments', 'AppointmentController@store');
 $router->get('/appointments/{id}', 'AppointmentController@get');
 $router->patch('/appointments/{id}', 'AppointmentController@update');
 $router->delete('/appointments/{id}', 'AppointmentController@delete');
+
+
+$router->get('/appointments/requeriment', 'AppointmentRequerimentController@index');
+$router->post('/appointments/requeriment', 'AppointmentRequerimentController@store');
+$router->get('/appointments/requeriment/{id}', 'AppointmentRequerimentController@get');
+$router->patch('/appointments/requeriment/{id}', 'AppointmentRequerimentController@update');
+$router->delete('/appointments/requeriment/{id}', 'AppointmentRequerimentController@delete');
