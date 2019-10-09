@@ -14,6 +14,11 @@ class Equipment extends Model
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
     protected $fillable = [
         'name',
-        'branch_office_id'
+        'branch_office_id',
     ];
+
+    public function equipmentTypes()
+    {
+        return $this->belongsToMany('App\\Models\\EquipmentType');
+    }
 }

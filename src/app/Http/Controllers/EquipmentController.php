@@ -27,7 +27,7 @@ class EquipmentController extends Controller
 
     public function get(Request $request, int $id)
     {
-        $equipment = Equipment::findOrFail($id);
+        $equipment = Equipment::with('equipmentTypes')->findOrFail($id);
 
         return $equipment;
     }
