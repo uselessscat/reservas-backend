@@ -15,4 +15,9 @@ class PlaceType extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function places()
+    {
+        return $this->belongsToMany('App\\Models\\Place');
+    }
 }
