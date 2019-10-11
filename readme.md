@@ -33,8 +33,8 @@ docker exec -t <PHP_CONTAINER_NAME> php artisan <COMMAND>
 ```
 ### Xdebbuger en Visual studio code 
 
-1.- Instalar package PHP Debug 
-2.- En el icono de debugger luego darle play, escoger PHP y dejar el launch.json de la siguiente forma 
+1. Instalar package PHP Debug 
+2. En el icono de debugger luego darle play, escoger PHP y dejar el launch.json de la siguiente forma 
 
 ```
 {
