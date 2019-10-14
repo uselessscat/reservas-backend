@@ -15,4 +15,9 @@ class EquipmentType extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function equipments()
+    {
+        return $this->belongsToMany('App\\Models\\Equipment');
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlacePlaceTypesTable extends Migration
+class CreatePlacePlaceTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePlacePlaceTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('place_place_types', function (Blueprint $table) {
+        Schema::create('place_place_type', function (Blueprint $table) {
             $table->bigIncrements('id');
             
             $table->bigInteger('place_id');
@@ -31,6 +31,6 @@ class CreatePlacePlaceTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('place_place_types');
+        Schema::dropIfExists('place_place_type');
     }
 }
