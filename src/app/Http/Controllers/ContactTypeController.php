@@ -9,7 +9,7 @@ class ContactTypeController extends Controller
 {
     public function index(Request $request)
     {
-        $contactTypeTypeList = ContactType::all();
+        $contactTypeTypeList = ContactType::paginate($request->query('per_page') ?? 10);
 
         return $contactTypeTypeList;
     }

@@ -9,7 +9,7 @@ class RoleController extends Controller
 {
     public function index(Request $request)
     {
-        $roleList = Role::all();
+        $roleList = Role::paginate($request->query('per_page') ?? 10);
 
         return $roleList;
     }
