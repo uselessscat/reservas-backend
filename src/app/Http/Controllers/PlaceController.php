@@ -9,7 +9,7 @@ class PlaceController extends Controller
 {
     public function index(Request $request)
     {
-        $placeList = Place::all();
+        $placeList = Place::paginate($request->query('per_page') ?? 10);;
 
         return $placeList;
     }

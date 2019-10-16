@@ -9,7 +9,7 @@ class EquipmentController extends Controller
 {
     public function index(Request $request)
     {
-        $equipmentList = Equipment::all();
+        $equipmentList = Equipment::paginate($request->query('per_page') ?? 10);
 
         return $equipmentList;
     }
