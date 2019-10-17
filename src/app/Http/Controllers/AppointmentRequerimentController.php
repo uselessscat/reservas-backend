@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
+use App\Models\AppointmentRequeriment;
 use Illuminate\Http\Request;
 
 class AppointmentRequerimentController extends Controller
@@ -17,7 +17,8 @@ class AppointmentRequerimentController extends Controller
     public function store(Request $request)
     {
         $input = $request->only(['appointment_id', 'requeriment_id']);
-
+        $appointmentId=$input["appointment_id"];
+        
         $appointment = new AppointmentRequeriment($input);
 
         $appointment->save();
@@ -27,7 +28,7 @@ class AppointmentRequerimentController extends Controller
 
     public function get(Request $request, int $id)
     {
-        $appointmentRequeriment = AppointmentRequeriment::with(['roles', 'contacts'])->findOrFail($id);
+        $appointmentRequeriment = AppointmentRequeriment::with(['requeriment', 'appointment'])->findOrFail($id);
         return $appointmentRequeriment;
     }
 

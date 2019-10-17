@@ -88,7 +88,8 @@ $router->delete('/appointments/{id}', 'AppointmentController@delete');
 
 
 $router->get('/appointments/requeriment', 'AppointmentRequerimentController@index');
-$router->post('/appointments/requeriment', 'AppointmentRequerimentController@store');
-$router->get('/appointments/requeriment/{id}', 'AppointmentRequerimentController@get');
-$router->patch('/appointments/requeriment/{id}', 'AppointmentRequerimentController@update');
-$router->delete('/appointments/requeriment/{id}', 'AppointmentRequerimentController@delete');
+$router->get('/appointments/{appointmentId}/requeriment', 'AppointmentRequerimentController@get');
+$router->post('/appointments/requeriment/', 'AppointmentRequerimentController@store');
+$router->get('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@get');
+$router->patch('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@update');
+$router->delete('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@delete');
