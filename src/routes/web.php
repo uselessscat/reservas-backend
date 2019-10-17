@@ -62,11 +62,28 @@ $router->get('/place_types/{id}', 'PlaceTypeController@get');
 $router->patch('/place_types/{id}', 'PlaceTypeController@update');
 $router->delete('/place_types/{id}', 'PlaceTypeController@delete');
 
+$router->get('/places', 'PlaceController@index');
+$router->post('/places', 'PlaceController@store');
+$router->get('/places/{id}', 'PlaceController@get');
+$router->patch('/places/{id}', 'PlaceController@update');
+$router->delete('/places/{id}', 'PlaceController@delete');
+
+$router->get('/places/{id}/types', 'PlacePlaceTypeController@index');
+$router->post('/places/{id}/types', 'PlacePlaceTypeController@store');
+$router->delete('/places/{id}/types', 'PlacePlaceTypeController@delete');
+$router->get('/places/{id}/types/{typeId}', 'PlacePlaceTypeController@get');
+
 $router->get('/equipment_types', 'EquipmentTypeController@index');
 $router->post('/equipment_types', 'EquipmentTypeController@store');
 $router->get('/equipment_types/{id}', 'EquipmentTypeController@get');
 $router->patch('/equipment_types/{id}', 'EquipmentTypeController@update');
 $router->delete('/equipment_types/{id}', 'EquipmentTypeController@delete');
+
+$router->get('/equipments', 'EquipmentController@index');
+$router->post('/equipments', 'EquipmentController@store');
+$router->get('/equipments/{id}', 'EquipmentController@get');
+$router->patch('/equipments/{id}', 'EquipmentController@update');
+$router->delete('/equipments/{id}', 'EquipmentController@delete');
 
 $router->get('/services', 'ServiceController@index');
 $router->post('/services', 'ServiceController@store');

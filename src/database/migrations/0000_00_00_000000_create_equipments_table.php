@@ -18,6 +18,9 @@ class CreateEquipmentsTable extends Migration
 
             $table->bigInteger('branch_office_id');
 
+            $table->string('name', 100)->nullable();
+            $table->string('code', 100)->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

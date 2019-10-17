@@ -9,7 +9,7 @@ class AppointmentController extends Controller
 {
     public function index(Request $request)
     {
-        $appointmentList = Appointment::all();
+        $appointmentList = Appointment::paginate($request->query('per_page') ?? 10);
 
         return $appointmentList;
     }
