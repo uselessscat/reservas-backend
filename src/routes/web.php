@@ -102,3 +102,11 @@ $router->post('/appointments', 'AppointmentController@store');
 $router->get('/appointments/{id}', 'AppointmentController@get');
 $router->patch('/appointments/{id}', 'AppointmentController@update');
 $router->delete('/appointments/{id}', 'AppointmentController@delete');
+
+
+$router->get('/appointments/requeriment', 'AppointmentRequerimentController@index');
+$router->get('/appointments/{appointmentId}/requeriment', 'AppointmentRequerimentController@get');
+$router->post('/appointments/requeriment/', 'AppointmentRequerimentController@store');
+$router->get('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@get');
+$router->patch('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@update');
+$router->delete('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@delete');

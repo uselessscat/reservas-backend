@@ -31,7 +31,10 @@ class Requeriment extends Model
     {
         return $this->belongsTo('App\Models\Service');
     }
-
+    public function appointmentRequeriment()
+    {
+        return $this->hasMany('App\Models\AppointmentRequeriment');
+    }
     public function getRequerimentableAttribute()
     {
         $type = $this->requeriment_type;
