@@ -16,7 +16,15 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->only(['person_id', 'service_id', 'from', 'to']);
+        $this->validate($request, [
+            'person_id' => 'required',
+            'service_id' => 'required',
+            'email' => 'required',
+            'branch_office_id'=>'required',
+            'from'=>'required',
+            'to'=>'required',
+        ]);
+        $input = $request->only(['person_id', 'service_id','branch_office_id', 'from', 'to']);
 
         $appointment = new Appointment($input);
 
