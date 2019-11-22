@@ -3,7 +3,7 @@
 use App\Models\BranchOffice;
 use Illuminate\Database\Seeder;
 
-class FakeBranchOfficesTableSeeder extends Seeder
+class FakeBranchOfficeTableSeeder extends Seeder
 {
     public function run()
     {

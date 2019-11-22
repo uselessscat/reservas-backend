@@ -13,7 +13,7 @@ class CreateEquipmentEquipmentTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipment_equipment_type', function (Blueprint $table) {
+        Schema::create('equipment_equipment_types', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->bigInteger('equipment_id');
@@ -31,6 +31,6 @@ class CreateEquipmentEquipmentTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipment_equipment_type');
+        Schema::dropIfExists('equipment_equipment_types');
     }
 }

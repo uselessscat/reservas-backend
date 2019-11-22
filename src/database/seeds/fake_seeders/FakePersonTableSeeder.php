@@ -3,7 +3,7 @@
 use App\Models\Person;
 use Illuminate\Database\Seeder;
 
-class FakePersonsTableSeeder extends Seeder
+class FakePersonTableSeeder extends Seeder
 {
     public function run()
     {

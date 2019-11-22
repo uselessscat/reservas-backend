@@ -13,7 +13,7 @@ class CreatePlacePlaceTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('place_place_type', function (Blueprint $table) {
+        Schema::create('place_place_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             
             $table->bigInteger('place_id');
@@ -31,6 +31,6 @@ class CreatePlacePlaceTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('place_place_type');
+        Schema::dropIfExists('place_place_types');
     }
 }

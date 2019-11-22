@@ -3,7 +3,7 @@
 use App\Models\ContactType;
 use Illuminate\Database\Seeder;
 
-class ContactTypesTableSeeder extends Seeder
+class ContactTypeTableSeeder extends Seeder
 {
     public function run()
     {
