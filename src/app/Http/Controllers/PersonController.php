@@ -33,7 +33,7 @@ class PersonController extends Controller
 
     public function get(Request $request, int $id)
     {
-        $person = Person::with(['roles', 'contacts'])->findOrFail($id);
+        $person = Person::with(['roles', 'contacts.contact_type'])->findOrFail($id);
 
         return $person;
     }

@@ -17,6 +17,11 @@ class PersonContactController extends Controller
 
     public function store(Request $request, int $personId)
     {
+        $this->validate($request, [
+            'contact_type_id' => 'required',
+            'data' => 'required',
+        ]);
+
         $person = Person::findOrFail($personId);
 
         $input = $request->only(['data', 'contact_type_id']);

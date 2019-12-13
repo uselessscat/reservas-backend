@@ -11,7 +11,12 @@ class Contact extends Model
 
     protected $table = 'contacts';
 
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = [
+        'created_at', 
+        'updated_at', 
+        'deleted_at'
+    ];
+
     protected $fillable = [
         'data',
         'contact_type_id',
