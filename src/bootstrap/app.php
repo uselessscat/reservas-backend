@@ -46,6 +46,11 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->bind(
+    Illuminate\Pagination\LengthAwarePaginator::class,
+    App\PaginationFix\LengthAwarePaginator::class
+);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -76,6 +81,7 @@ $app->middleware([
 |
  */
 
+$app->register(App\PaginationFix\PaginationServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
