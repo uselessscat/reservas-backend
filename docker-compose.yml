@@ -17,8 +17,6 @@ services:
   php:
     build:
       context: .
-    volumes:
-      - ./src:/src
     working_dir: /src
     networks:
       default:
