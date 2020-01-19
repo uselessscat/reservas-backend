@@ -22,16 +22,6 @@ class CreateRelations extends Migration
             $table->foreign('contact_type_id')->references('id')->on('contact_types');
         });
 
-        Schema::table('equipment_equipment_types', function (Blueprint $table) {
-            $table->foreign('equipment_id')->references('id')->on('equipments');
-            $table->foreign('equipment_type_id')->references('id')->on('equipment_types');
-        });
-
-        Schema::table('place_place_types', function (Blueprint $table) {
-            $table->foreign('place_id')->references('id')->on('places');
-            $table->foreign('place_type_id')->references('id')->on('place_types');
-        });
-
         Schema::table('requeriments', function (Blueprint $table) {
             $table->foreign('service_id')->references('id')->on('services');
         });
@@ -47,14 +37,6 @@ class CreateRelations extends Migration
         });
 
         Schema::table('person_roles', function (Blueprint $table) {
-            $table->foreign('branch_office_id')->references('id')->on('branch_offices');
-        });
-
-        Schema::table('places', function (Blueprint $table) {
-            $table->foreign('branch_office_id')->references('id')->on('branch_offices');
-        });
-
-        Schema::table('equipments', function (Blueprint $table) {
             $table->foreign('branch_office_id')->references('id')->on('branch_offices');
         });
     }

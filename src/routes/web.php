@@ -17,96 +17,97 @@ $router->get('/status', function () {
     ]);
 });
 
-$router->get('/persons', 'PersonController@index');
-$router->post('/persons', 'PersonController@store');
-$router->get('/persons/{id}', 'PersonController@get');
-$router->patch('/persons/{id}', 'PersonController@update');
-$router->delete('/persons/{id}', 'PersonController@delete');
+//$router->group(['middleware' => 'auth'], function () use ($router) {
+    $router->get('/persons', 'PersonController@index');
+    $router->post('/persons', 'PersonController@store');
+    $router->get('/persons/{id}', 'PersonController@get');
+    $router->patch('/persons/{id}', 'PersonController@update');
+    $router->delete('/persons/{id}', 'PersonController@delete');
 
-$router->get('/persons/{id}/roles', 'PersonRoleController@index');
-$router->post('/persons/{id}/roles', 'PersonRoleController@store');
-$router->delete('/persons/{id}/roles', 'PersonRoleController@delete');
-$router->get('/persons/{personId}/roles/{id}', 'PersonRoleController@get');
+    $router->get('/persons/{id}/roles', 'PersonRoleController@index');
+    $router->post('/persons/{id}/roles', 'PersonRoleController@store');
+    $router->delete('/persons/{id}/roles', 'PersonRoleController@delete');
+    $router->get('/persons/{personId}/roles/{id}', 'PersonRoleController@get');
 
-$router->get('/persons/{id}/contacts', 'PersonContactController@index');
-$router->post('/persons/{id}/contacts', 'PersonContactController@store');
-$router->delete('/persons/{id}/contacts', 'PersonContactController@delete');
-$router->get('/persons/{personId}/contacts/{id}', 'PersonContactController@get');
+    $router->get('/persons/{id}/contacts', 'PersonContactController@index');
+    $router->post('/persons/{id}/contacts', 'PersonContactController@store');
+    $router->delete('/persons/{id}/contacts', 'PersonContactController@delete');
+    $router->get('/persons/{personId}/contacts/{id}', 'PersonContactController@get');
 
-$router->get('/roles', 'RoleController@index');
-$router->post('/roles', 'RoleController@store');
-$router->get('/roles/{id}', 'RoleController@get');
-$router->patch('/roles/{id}', 'RoleController@update');
-$router->delete('/roles/{id}', 'RoleController@delete');
+    $router->get('/roles', 'RoleController@index');
+    $router->post('/roles', 'RoleController@store');
+    $router->get('/roles/{id}', 'RoleController@get');
+    $router->patch('/roles/{id}', 'RoleController@update');
+    $router->delete('/roles/{id}', 'RoleController@delete');
 
-$router->get('/contact_types', 'ContactTypeController@index');
-$router->post('/contact_types', 'ContactTypeController@store');
-$router->get('/contact_types/{id}', 'ContactTypeController@get');
-$router->patch('/contact_types/{id}', 'ContactTypeController@update');
-$router->delete('/contact_types/{id}', 'ContactTypeController@delete');
+    $router->get('/contact_types', 'ContactTypeController@index');
+    $router->post('/contact_types', 'ContactTypeController@store');
+    $router->get('/contact_types/{id}', 'ContactTypeController@get');
+    $router->patch('/contact_types/{id}', 'ContactTypeController@update');
+    $router->delete('/contact_types/{id}', 'ContactTypeController@delete');
 
-$router->get('/branch_offices', 'BranchOfficeController@index');
-$router->post('/branch_offices', 'BranchOfficeController@store');
-$router->get('/branch_offices/{id}', 'BranchOfficeController@get');
-$router->patch('/branch_offices/{id}', 'BranchOfficeController@update');
-$router->delete('/branch_offices/{id}', 'BranchOfficeController@delete');
+    $router->get('/branch_offices', 'BranchOfficeController@index');
+    $router->post('/branch_offices', 'BranchOfficeController@store');
+    $router->get('/branch_offices/{id}', 'BranchOfficeController@get');
+    $router->patch('/branch_offices/{id}', 'BranchOfficeController@update');
+    $router->delete('/branch_offices/{id}', 'BranchOfficeController@delete');
 
-$router->get('/branch_offices/{id}/contacts', 'BranchOfficeContactController@index');
-$router->post('/branch_offices/{id}/contacts', 'BranchOfficeContactController@store');
-$router->delete('/branch_offices/{id}/contacts', 'BranchOfficeContactController@delete');
-$router->get('/branch_offices/{branchOfficeId}/contacts/{id}', 'BranchOfficeContactController@get');
+    $router->get('/branch_offices/{id}/contacts', 'BranchOfficeContactController@index');
+    $router->post('/branch_offices/{id}/contacts', 'BranchOfficeContactController@store');
+    $router->delete('/branch_offices/{id}/contacts', 'BranchOfficeContactController@delete');
+    $router->get('/branch_offices/{branchOfficeId}/contacts/{id}', 'BranchOfficeContactController@get');
 
-$router->get('/place_types', 'PlaceTypeController@index');
-$router->post('/place_types', 'PlaceTypeController@store');
-$router->get('/place_types/{id}', 'PlaceTypeController@get');
-$router->patch('/place_types/{id}', 'PlaceTypeController@update');
-$router->delete('/place_types/{id}', 'PlaceTypeController@delete');
+    $router->get('/place_types', 'PlaceTypeController@index');
+    $router->post('/place_types', 'PlaceTypeController@store');
+    $router->get('/place_types/{id}', 'PlaceTypeController@get');
+    $router->patch('/place_types/{id}', 'PlaceTypeController@update');
+    $router->delete('/place_types/{id}', 'PlaceTypeController@delete');
 
-$router->get('/places', 'PlaceController@index');
-$router->post('/places', 'PlaceController@store');
-$router->get('/places/{id}', 'PlaceController@get');
-$router->patch('/places/{id}', 'PlaceController@update');
-$router->delete('/places/{id}', 'PlaceController@delete');
+    $router->get('/places', 'PlaceController@index');
+    $router->post('/places', 'PlaceController@store');
+    $router->get('/places/{id}', 'PlaceController@get');
+    $router->patch('/places/{id}', 'PlaceController@update');
+    $router->delete('/places/{id}', 'PlaceController@delete');
 
-$router->get('/places/{id}/types', 'PlacePlaceTypeController@index');
-$router->post('/places/{id}/types', 'PlacePlaceTypeController@store');
-$router->delete('/places/{id}/types', 'PlacePlaceTypeController@delete');
-$router->get('/places/{id}/types/{typeId}', 'PlacePlaceTypeController@get');
+    $router->get('/places/{id}/types', 'PlacePlaceTypeController@index');
+    $router->post('/places/{id}/types', 'PlacePlaceTypeController@store');
+    $router->delete('/places/{id}/types', 'PlacePlaceTypeController@delete');
+    $router->get('/places/{id}/types/{typeId}', 'PlacePlaceTypeController@get');
 
-$router->get('/equipment_types', 'EquipmentTypeController@index');
-$router->post('/equipment_types', 'EquipmentTypeController@store');
-$router->get('/equipment_types/{id}', 'EquipmentTypeController@get');
-$router->patch('/equipment_types/{id}', 'EquipmentTypeController@update');
-$router->delete('/equipment_types/{id}', 'EquipmentTypeController@delete');
+    $router->get('/equipment_types', 'EquipmentTypeController@index');
+    $router->post('/equipment_types', 'EquipmentTypeController@store');
+    $router->get('/equipment_types/{id}', 'EquipmentTypeController@get');
+    $router->patch('/equipment_types/{id}', 'EquipmentTypeController@update');
+    $router->delete('/equipment_types/{id}', 'EquipmentTypeController@delete');
 
-$router->get('/equipments', 'EquipmentController@index');
-$router->post('/equipments', 'EquipmentController@store');
-$router->get('/equipments/{id}', 'EquipmentController@get');
-$router->patch('/equipments/{id}', 'EquipmentController@update');
-$router->delete('/equipments/{id}', 'EquipmentController@delete');
+    $router->get('/equipments', 'EquipmentController@index');
+    $router->post('/equipments', 'EquipmentController@store');
+    $router->get('/equipments/{id}', 'EquipmentController@get');
+    $router->patch('/equipments/{id}', 'EquipmentController@update');
+    $router->delete('/equipments/{id}', 'EquipmentController@delete');
 
-$router->get('/services', 'ServiceController@index');
-$router->post('/services', 'ServiceController@store');
-$router->get('/services/{id}', 'ServiceController@get');
-$router->patch('/services/{id}', 'ServiceController@update');
-$router->delete('/services/{id}', 'ServiceController@delete');
+    $router->get('/services', 'ServiceController@index');
+    $router->post('/services', 'ServiceController@store');
+    $router->get('/services/{id}', 'ServiceController@get');
+    $router->patch('/services/{id}', 'ServiceController@update');
+    $router->delete('/services/{id}', 'ServiceController@delete');
 
-$router->get('/services/{serviceId}/requeriments', 'RequerimentController@index');
-$router->post('/services/{serviceId}/requeriments', 'RequerimentController@store');
-$router->get('/services/{serviceId}/requeriments/{id}', 'RequerimentController@get');
-$router->patch('/services/{serviceId}/requeriments/{id}', 'RequerimentController@update');
-$router->delete('/services/{serviceId}/requeriments/{id}', 'RequerimentController@delete');
+    $router->get('/services/{serviceId}/requeriments', 'RequerimentController@index');
+    $router->post('/services/{serviceId}/requeriments', 'RequerimentController@store');
+    $router->get('/services/{serviceId}/requeriments/{id}', 'RequerimentController@get');
+    $router->patch('/services/{serviceId}/requeriments/{id}', 'RequerimentController@update');
+    $router->delete('/services/{serviceId}/requeriments/{id}', 'RequerimentController@delete');
 
-$router->get('/appointments', 'AppointmentController@index');
-$router->post('/appointments', 'AppointmentController@store');
-$router->get('/appointments/{id}', 'AppointmentController@get');
-$router->patch('/appointments/{id}', 'AppointmentController@update');
-$router->delete('/appointments/{id}', 'AppointmentController@delete');
+    $router->get('/appointments', 'AppointmentController@index');
+    $router->post('/appointments', 'AppointmentController@store');
+    $router->get('/appointments/{id}', 'AppointmentController@get');
+    $router->patch('/appointments/{id}', 'AppointmentController@update');
+    $router->delete('/appointments/{id}', 'AppointmentController@delete');
 
-
-$router->get('/appointments/requeriment', 'AppointmentRequerimentController@index');
-$router->get('/appointments/{appointmentId}/requeriment', 'AppointmentRequerimentController@get');
-$router->post('/appointments/requeriment/', 'AppointmentRequerimentController@store');
-$router->get('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@get');
-$router->patch('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@update');
-$router->delete('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@delete');
+    //$router->get('/appointments/requeriments', 'AppointmentRequerimentController@index');
+    //$router->get('/appointments/{appointmentId}/requeriments', 'AppointmentRequerimentController@get');
+    //$router->post('/appointments/{appointmentId}/requeriments', 'AppointmentRequerimentController@store');
+    //$router->get('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@get');
+    //$router->patch('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@update');
+    //$router->delete('/appointments/{appointmentId}/requeriment/{requerimentId}', 'AppointmentRequerimentController@delete');
+//});
