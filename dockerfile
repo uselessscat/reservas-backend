@@ -11,4 +11,4 @@ RUN apt-get update \
     && docker-php-ext-install -j$(nproc) pdo pdo_pgsql
 
 COPY --chown=www-data:www-data --from=composer /app /src
-COPY --chown=www-data:www-data /app/.env /src/.env
+COPY --chown=www-data:www-data .env /src
