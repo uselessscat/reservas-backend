@@ -10,4 +10,4 @@ RUN apt-get update \
     && apt-get install -y libpq-dev \
     && docker-php-ext-install -j$(nproc) pdo pdo_pgsql
 
-COPY --from=composer /app /src
+COPY --chown=www-data:www-data --from=composer /app /src
