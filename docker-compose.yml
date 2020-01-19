@@ -18,8 +18,6 @@ services:
     build:
       context: .
     working_dir: /src
-    volumes: 
-      - ./src/.env:/src/.env
     networks:
       default:
         aliases:
