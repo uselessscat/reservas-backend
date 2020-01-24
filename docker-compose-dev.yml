@@ -29,11 +29,12 @@ services:
       - postgres
   postgres:
     image: postgres:12
-    restart: always
     environment:
       POSTGRES_DB: reservations
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
@@ -63,7 +64,7 @@ services:
       - ./docs/swagger:/usr/share/nginx/html/definitions
     environment:
       API_URL: definitions/swagger.yml
-    depends_on: 
+    depends_on:
       - php
 networks:
   default:
