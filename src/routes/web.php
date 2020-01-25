@@ -13,7 +13,9 @@
 
 $router->get('/status', function () {
     return response()->json([
+        'name' => env('APP_NAME') ?? 'Not defined',
         'status' => 'The server is running &#128578',
+        'env' => env('APP_ENV') ?? 'Not defined',
     ]);
 });
 
